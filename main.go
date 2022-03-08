@@ -1,16 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"gohub/bootstrap"
 )
 
 func main() {
-	router := gin.Default()
+	router := gin.New()
 
-	router.GET("/", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{"message": "OK1"})
-	})
+	bootstrap.SetupRoute(router)
 
-	router.Run()
+	err := router.Run()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
