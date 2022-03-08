@@ -9,7 +9,7 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{"message": "OK"})
+		context.JSON(http.StatusOK, gin.H{"message": "OK1"})
 	})
 
 	router.Run()
